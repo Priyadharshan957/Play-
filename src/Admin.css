@@ -1,0 +1,32 @@
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar li:hover,
+  .sidebar li.active {
+    background-color: #555;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }

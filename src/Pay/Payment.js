@@ -2,14 +2,64 @@ import React from 'react';
 import '../Pay/Payment.css'; 
 import im from '../Images/bg.jpg';
 import Nav from '../Component/Nav';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
+import image from '../Images/logo.png'; 
 
 const Payment = () => {
   const nav = useNavigate();
+  const location = useLocation();
+  const { plan } = location.state || {};  // Get the plan from the state
 
-  const handleAlert = (e) => {
-    e.preventDefault();
-    nav("/last");
+  const loadScript = (src) => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+  const handlePayment = async () => {
+    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+
+    if (!res) {
+      alert('Razorpay SDK failed to load. Are you online?');
+      return;
+    }
+
+    const options = {
+      key: 'rzp_test_GcZZFDPP0jHtC4', 
+      amount: plan === 'essential' ? 29900 : plan === 'extra' ? 49900 : 79900, 
+      currency: 'INR',
+      name: 'Play+',
+      description: `${plan} Plan Payment`,
+      image: image,
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+        nav("/last");
+      },
+      prefill: {
+        name: 'Tony Stark',
+        email: 'Tonystark@example.com',
+        contact: '91300040030'
+      },
+      notes: {
+        address: 'Razorpay Corporate Office'
+      },
+      theme: {
+        color: '#F37254'
+      }
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
   };
 
   return (
@@ -21,22 +71,12 @@ const Payment = () => {
     }}>
       <Nav />
       <div className="container-ii">
-        <h1>Make a Payment</h1>
+        <h1>Make a Payment for {plan} Plan</h1>  {/* Display the plan */}
         <br />
         <br />
         <br />
-        <form onSubmit={handleAlert}>
-          <input className='input' type="text" id="cardNumber" name="cardNumber" placeholder="Card holder name" required />
-          <input className='input' type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required />
-          <input className='input' type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required />
-          <input className='input' type="text" id="cvv" name="cvv" placeholder="CVV" required />
-          <center>
-            <p>(or)</p>
-            <br />
-          </center>
-          <input type="text" className='input' id="cardNumber" name="cardNumber" placeholder="Enter UPI Id" /><br />
-          <button type="submit">Pay Now</button><br />
-        </form>
+        <button className="pay-now-button" onClick={handlePayment}>Pay Now</button>
+
       </div>
       <br />
       <br />

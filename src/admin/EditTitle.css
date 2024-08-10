@@ -1,0 +1,65 @@
+/* App.css */
+.app {
+    display: flexbox;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* EditTitle.css */
+  .edit-title {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .edit-title .form input,
+  .edit-title .form select,
+  .edit-title .form button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .edit-title .form .radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .edit-title .form .image-preview {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  

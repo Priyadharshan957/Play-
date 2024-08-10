@@ -7,6 +7,13 @@ import SignUpForm from './Sign/SignUpForm';
 import Pricing from './Price/Pricing';
 import Contactus from './Contact/Contactus';
 import Payment from './Pay/Payment';
+import MovieCard from './MovieCard/MovieCard';
+import MovieDetail from './MovieCard/MovieDetail';
+import Admin from './Admin';
+// import MovieCard2 from './MovieCard/MovieCard2'
+// import MovieCard3 from './MovieCard/MovieCard3'
+
+
 
 import YourComponent from './Last/YourComponent';
 
@@ -22,6 +29,16 @@ const App = () => {
     <Route path='/con' element={<Contactus/>}/>
     <Route path='/pay' element={<Payment/>}/>
     <Route path='/last' element={<YourComponent/>}/>
+
+
+    <Route path="/movie/:id" element={<MovieDetail />} />
+       
+    
+    
+    <Route path="/" element={<MovieCard />} />
+    <Route path="/movie/:id" element={<MovieDetail />} />
+    <Route path="/admin" element={<Admin />} />
+ 
     
    
    
@@ -29,6 +46,7 @@ const App = () => {
    </BrowserRouter>
  
  
+  
 
     </>
   )

@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
-import logo from "../Images/logo2.png";
+import { useNavigate } from 'react-router-dom'; // Ensure correct import from react-router-dom
 import im from "../Images/bg2.png";
+import logo from "../Images/logo4.png";
 import "./Sign.css";
-import { CSVLink } from 'react-csv';
-import { useNavigate } from 'react-router';
-import firebase from '../Firebase/Firebase';
-
-import { database } from '../Firebase/Firebase';
-
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-
-import 'firebase/auth';
-import 'firebase/firestore'; // Import Firestore module
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -22,88 +10,111 @@ function SignUpForm() {
     email: '',
     password: ''
   });
+  const [error, setError] = useState(''); // State to handle error messages
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const nav=useNavigate();
+  const nav = useNavigate(); // Ensure useNavigate is used correctly
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(database,formData.email,formData.password)
-    .then((data=>
-      {
-        console.log(data,"adfdgaf")
-        nav("/")
-      }
-      
-      
-      ))
-      
-      .catch((error)=>{
-        alert(error.code)
-      })
-      
     try {
-      // Create user with email and password
-      const userCredential = await firebase.auth().createUserWithEmailAndPassword(formData.email, formData.password);
-
-      // Add additional user information to Firestore
-      await firebase.firestore().collection('users').doc(userCredential.user.uid).set({
-        username: formData.username,
-        email: formData.email,
-        // Add more fields as needed
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: formData.username, // Adjust field names to match backend expectations
+          email: formData.email,
+          password: formData.password,
+          role: 'user' // Default role, adjust as needed
+        }),
       });
 
-      // Reset form data
-      setFormData({
-        username: '',
-        email: '',
-        password: ''
-      });
+      const data = await response.json();
 
-      // Navigate to home page or any other page after successful sign-up
-      nav('/');
+      if (response.ok) {
+        // Reset form data
+        setFormData({
+          username: '',
+          email: '',
+          password: ''
+        });
+        // Navigate to home page or any other page after successful sign-up
+        nav('/');
+      } else {
+        // Update error state with the message from the backend
+        setError(data.message || 'An error occurred during sign-up');
+      }
     } catch (error) {
-      console.error('Error signing up:', error.message);
-      // Handle error here
+      console.error('Error signing up:', error);
+      setError('An error occurred during sign-up');
     }
   };
 
   return (
-    <body style={{backgroundImage:`url(${im})`,
-    
-    backgroundPosition:"center",
-    backgroundSize:"cover",
-    backgroundRepeat:"no-repeat"
-    
-    
+    <div style={{
+      backgroundImage: `url(${im})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
     }}>
-
-    <div className="login-container">
-      <form className="login-box1" onSubmit={handleSubmit}>
-        <div><img src={logo} height={150} width={200}></img></div>
-        <div className="form-group">
-          <input className="input" placeholder="UserName" type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-          <input className="input" placeholder="Email" type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-          <input  className="input" placeholder="PassWord" type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-          <center>
-          <button className='button' type="submit">Sign Up</button>
-        
-          </center>
-        </div>
-      </form>
-      
+      <div className="login-container">
+        <form className="login-box1" onSubmit={handleSubmit}>
+          <div><img src={logo} height={150} width={200} alt="Logo" /></div>
+          <div className="form-group">
+            <input
+              className="input"
+              placeholder="Username"
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              className="input"
+              placeholder="Email"
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              className="input"
+              placeholder="Password"
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+          <div className="form-group">
+            <center>
+              <button className='button' type="submit">Sign Up</button>
+            </center>
+          </div>
+        </form>
+      </div>
     </div>
-    </body>
   );
 }
 

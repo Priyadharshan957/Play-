@@ -23,6 +23,9 @@ import '../Component/Nav.css'
 import  { useRef } from 'react';
 import '../Kard/Kard.css';
 
+
+
+
 import w2 from '../Images/mp1.jpg';
 import w1 from '../Images/mp2.jpeg';
 import w3 from '../Images/mp3.jpeg';
@@ -35,7 +38,19 @@ import w8 from '../Images/rec3.jpg'
 import w9 from '../Images/rec4.jpg'
 import w10 from '../Images/rec5.jpg'
 
-import x1 from '../Images/d1.jpeg'
+import ww6 from '../Images/sc4.jpg'
+import ww7 from '../Images/sc2.jpg'
+import ww8 from '../Images/sc.jpg'
+import ww9 from '../Images/sc3.jpg'
+import ww10 from '../Images/sc1.jpg'
+
+import xy1 from '../Images/mp5.jpg'
+import xy2 from '../Images/act2.jpg'
+import xy3 from '../Images/mp1.jpg'
+import xy4 from '../Images/a4.jpg'
+import xy5 from '../Images/mp3.jpeg'
+
+import x1 from '../Images/d1.jpg'
 import x2 from '../Images/d2.jpeg'
 import x3 from '../Images/d3.jpeg'
 import x4 from '../Images/d4.jpeg'
@@ -53,24 +68,11 @@ import a3 from '../Images/a3.jpg'
 import a4 from '../Images/a4.jpg'
 import a5 from '../Images/a5.jpg'
 
-import b1 from '../Images/act1.jpg'
-import b2 from '../Images/act2.jpg'
-import b3 from '../Images/act3.jpg'
-import b4 from '../Images/act4.jpg'
-import b5 from '../Images/act5.jpg'
-
-import c1 from '../Images/act1.jpg'
-import c2 from '../Images/act2.jpg'
-import c3 from '../Images/act3.jpg'
-import c4 from '../Images/act4.jpg'
-import c5 from '../Images/act5.jpg'
-
-
-
-
-
-
-
+import b1 from '../Images/vr1.jpg'
+import b2 from '../Images/vr2.jpg'
+import b3 from '../Images/vr3.jpg'
+import b4 from '../Images/vr4.jpg'
+import b5 from '../Images/vr5.jpg'
 
 import bg from '../Images/bg.jpg';
 import Nav from '../Component/Nav';
@@ -88,6 +90,8 @@ export default function Kard() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  
 
   const handleClose = () => {
     setOpen(false);
@@ -130,81 +134,73 @@ export default function Kard() {
   const [isOpen, setIsOpen] = useState(false);
 
   const featuredWeddings = [
-    { id: 1,img:w2,h:"https://drive.google.com/file/d/1AX7SxA57MVkvpFS_SrMW4_408q7vvNbU/view?usp=drivesdk"},
-    { id: 2,img:w1,h:"https://drive.google.com/file/d/1MM6SRiSaRIRbESJPxTm3xZZAdnTDXyFV/view?usp=drivesdk"},
-    { id: 3,img:w3,h:"https://drive.google.com/file/d/1C9nCjJW_g8HOZm5MqyNEZEhkBErx_wx1/view?usp=drivesdk" },
-    { id: 4,img:w4 ,h:"https://drive.google.com/file/d/1OmpJwmDwd-mJuEYz4RxQqcnOTpCGXh-z/view?usp=drivesdk"},
-    {id: 5 ,img:w5,h:"https://drive.google.com/file/d/1-DhDG6EXGCyTJqxtERocZCOeFCqEgFvD/view?usp=drive_link"}
+    { id: 1,img:w2,h:"/movie/1"},
+    { id: 2,img:w1,h:"/movie/2"},
+    { id: 3,img:w3,h:"/movie/3" },
+    { id: 4,img:w4,h:'/movie/4'},
+    {id: 5 ,img:w5,h:"/movie/5"}
   ];
 
   const dd=[
-    {id: 1,img:w6, h:'https://drive.google.com/file/d/1u94XrozGL5vCWRGq5mdybL0IrBLZHJVM/view?usp=drivesdk'},
-    {id:  2,img:w7,h:"https://drive.google.com/file/d/1XK7gA2X2WsMKZIfTTBlbpyoFmvS0DBus/view"},
-    {id:  3,img:w8,h:"https://drive.google.com/file/d/1Qz7pKAgdxw5rKKLQ5mQIomNBiH7Y1JF9/view?usp=drivesdk"},
-    {id:  4,img:w9,h:"https://drive.google.com/file/d/1XK7gA2X2WsMKZIfTTBlbpyoFmvS0DBus/view"},
-    {id:  5,img:w10,h:"https://drive.google.com/file/d/1ictsm4CJwL7KE4T32wXMp08-KIjiETY4/view?usp=drivesdk"},
-    // {id: 6,img:w6, h:'https://drive.google.com/file/d/1u94XrozGL5vCWRGq5mdybL0IrBLZHJVM/view?usp=drivesdk'},
-    // {id:  7,img:w7,h:"https://drive.google.com/file/d/1XK7gA2X2WsMKZIfTTBlbpyoFmvS0DBus/view"},
-    // {id:  8,img:w10,h:"https://drive.google.com/file/d/1ictsm4CJwL7KE4T32wXMp08-KIjiETY4/view?usp=drivesdk"},
-
+    {id: 1,img:w6, h:'/movie/34'},
+    {id:  2,img:w7,h:"/movie/ 4"},
+    {id:  3,img:w8,h:"/movie/5"},
+    {id:  4,img:w9,h:"/movie/7"},
+    {id:  5,img:w10,h:"/movie/15"},
+    
   ];
 
   const dd2=[
-    {id: 1,img:x1,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:x2,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:x3,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:x4,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:x5,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:xy1,h:"/movie/6"},
+    {id:  2,img:xy2,h:"/movie/7"},
+    {id:  3,img:xy3,h:"/movie/8"},
+    {id:  4,img:xy4,h:"/movie/9"},
+    {id:  5,img:xy5,h:"/movie/10"}
 
   ];
   const dd3=[
-    {id: 1,img:xx5,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:xx4,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:xx2,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:xx3,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:xx1,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:xx5,h:"/movie/11"},
+    {id:  2,img:xx4,h:"/movie/12"},
+    {id:  3,img:xx2,h:"/movie/13"},
+    {id:  4,img:xx3,h:"/movie/14"},
+    {id:  5,img:xx1,h:"/movie/15"}
 
   ];
   const dd4=[
-    {id: 1,img:w6,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:w7,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:w8,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:w9,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:w10,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:ww6,h:"/movie/16"},
+    {id:  2,img:ww7,h:"/movie/17"},
+    {id:  3,img:ww8,h:"/movie/18"},
+    {id:  4,img:ww9,h:"/movie/19"},
+    {id:  5,img:ww10,h:"/movie/20"}
 
   ];
   const dd5=[
-    {id: 1,img:x1,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:x2,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:x3,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:x4,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:x5,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:x1,h:"/movie/21"},
+    {id:  2,img:x2,h:"/movie/22"},
+    {id:  3,img:x3,h:"/movie/23"},
+    {id:  4,img:x4,h:"/movie/24"},
+    {id:  5,img:x5,h:"/movie/25"}
 
   ];
   const dd6=[
-    {id: 1,img:a1,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:a2,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:a3,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:a4,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:a5,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:a1,h:"/movie/26"},
+    {id:  2,img:a2,h:"/movie/27"},
+    {id:  3,img:a3,h:"/movie/28"},
+    {id:  4,img:a4,h:"/movie/29"},
+    {id:  5,img:a5,h:"/movie/30"}
 
   ];
   const dd7=[
-    {id: 1,img:b1,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:b2,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:b3,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:b4,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:b5,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+    {id: 1,img:b1,h:"/movie/31"},
+    {id:  2,img:b2,h:"/movie/32"},
+    {id:  3,img:b3,h:"/movie/33"},
+    {id:  4,img:b4,h:"/movie/34"},
+    {id:  5,img:b5,h:"/movie/35"}
 
   ];
-  const dd8=[
-    {id:  1,img:c1,h:"https://drive.google.com/file/d/1Ku7r-2J1PGle0lFueuU5EipiQF7xBvc5/view?usp=drivesdk"},
-    {id:  2,img:c2,h:"https://drive.google.com/file/d/16V5bJf9j_gjsQsaPGxKA4OQHS42IiBf_/view?usp=drivesdk"},
-    {id:  3,img:c3,h:"https://drive.google.com/file/d/1mq-oettB9CigtRe4szwkPeGCkKVkVpHf/view?usp=drivesdk"},
-    {id:  4,img:c4,h:"https://drive.google.com/file/d/11TKjJdUO7SIBSAis22-rf76IMG9F3Kbz/view?usp=drivesdk"},
-    {id:  5,img:c5,h:"https://drive.google.com/file/d/1zoUHnsU62jYgJ18GkWkiDGkrYc5C-J91/view?usp=drivesdk"}
+ 
 
-  ];
+
   return (
     <>
     <body className='bg'>
@@ -212,12 +208,23 @@ export default function Kard() {
 
       
     <nav>
+
         <div class='log'>
     <img src={im} ></img> 
     
       </div>
     <ul>
       <li>
+      <div className="search-container">
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search..."
+      />
+    </div>
+      </li>
+      <li>
+        
         <a ><b>HOME</b></a>
         <br></br>
       </li>
@@ -235,6 +242,8 @@ export default function Kard() {
           <div className="option" onClick={handleClick2}>ACTION</div>
           <div className="option" onClick={handleClick3}>SCI-FI</div>
           <div className="option" onClick={handleClick4}>HORROR</div>
+          <div className="option" onClick={handleClick4}>POPULAR ANIMATIONS</div>
+          <div className="option" onClick={handleClick4}>VIRTUAL REALITY (VR)</div>
         </div>
       )}
     </div>
@@ -255,7 +264,7 @@ export default function Kard() {
 
       
        
-        <b onClick={handleClickOpen} style={{color:'blue'}}>
+        <b onClick={handleClickOpen} style={{color:'white'}}>
        <b>
          LOG OUT
         </b>
@@ -330,7 +339,12 @@ export default function Kard() {
 </div>
     <br/>
     <br/>
+
+    
     {/* stck2 */}
+
+    
+
 
     <div style={{backgroundColor:"rgb(192,192,192,0.1"}}>
       <br/>
@@ -366,15 +380,12 @@ export default function Kard() {
     </Card>
           </a>
           </div>
-          </div>
-         
-         
-         ))}
+          </div> ))}
     
 </div>
          </marquee>
-         <br/>
-         <br/>
+<br/>
+<br/>
     
 {/* stck3 */}
 <br/>
@@ -541,6 +552,7 @@ export default function Kard() {
           
           
           />
+          
        
       </CardActionArea>
     </Card>
@@ -551,6 +563,39 @@ export default function Kard() {
       ))}
     
 </div>
+
+
+<h1 className='h'>VIRTUAL REALITY (VR)</h1>
+<div ref={targetRef4} class='box1'>
+    {dd7.map(wedding => (
+      <div className='lol'>
+
+        <div className='hov'>
+        <a href={wedding.h}>
+      <Card sx={{ maxWidth: 300}} style={{borderRadius:"25px"}}>
+      <CardActionArea style={{marginLeft:"0px"}}>
+
+        <CardMedia 
+          component="img"
+          
+          height="350"
+          key={wedding.id}
+          
+          image={wedding.img}
+          
+          
+          />
+       
+      </CardActionArea>
+    </Card>
+          </a>
+          </div>
+          </div>
+      
+      ))}
+    
+</div>
+
 
 
 <br/>

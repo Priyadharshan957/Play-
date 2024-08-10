@@ -1,0 +1,24 @@
+/* src/MovieCard.css */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 200px;
+  justify-content: center;
+  padding: 200px;
+}
+
+.movie-card {
+  width: 2000px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.movie-card h3 {
+  font-size: 16px;
+  margin: 10px 0 0;
+}
