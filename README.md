@@ -1,4 +1,3 @@
-1.Cloud Arena is a web application that leverages Firebase for login authentication. 
 
 
 2.Users can sign in using their existing account credentials or register as new users.
